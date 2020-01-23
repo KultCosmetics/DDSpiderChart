@@ -55,7 +55,7 @@ extension String: DrawableString {
 
 extension NSAttributedString: DrawableString {
 
-    public func drawDrawable(with rect: CGRect) {        
+    public func drawDrawable(with rect: CGRect) {
         draw(with: rect, options: .usesLineFragmentOrigin, context: nil)
     }
 

@@ -25,13 +25,13 @@ class ViewController: UIViewController {
     // Custom font with custom size & color example
     func attributedAxisLabelSample1(_ label: String) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(string: label, attributes: [NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Bold", size: 16)!]))
+        attributedString.append(NSAttributedString(string: label, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont(name: "AvenirNextCondensed-Bold", size: 16)!]))
         return attributedString
     }
 
     func attributedAxisLabelSample2(_ label: String) -> NSAttributedString {
         let attributedString = NSMutableAttributedString()
-        attributedString.append(NSAttributedString(string: label, attributes: [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-Bold", size: 16)!]))
+        attributedString.append(NSAttributedString(string: label, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "AvenirNextCondensed-Bold", size: 16)!]))
         return attributedString
     }
 
@@ -40,9 +40,9 @@ class ViewController: UIViewController {
         case 0:
             view.backgroundColor = .white
             spiderChartView.color = .gray
-            spiderChartView.axes = ["PAS", "DRI", "SPD", "DEF", "PHY", "SHT"].map { attributedAxisLabelSample1($0) }
-            spiderChartView.addDataSet(values: [0.6, 0.8, 1.0, 0.6, 0.9, 0.75], color: .red)
-            spiderChartView.addDataSet(values: [0.5, 0.4, 0.35, 0.6, 0.7, 0.8], color: .cyan)
+            spiderChartView.axes = ["PAS", "DRI", "SPD", "DEF", "PHY", "DEF", "PHY", "DEF", "PHY", ].map { attributedAxisLabelSample1($0) }
+            spiderChartView.addDataSet(values: [0.6, 0.8, 1.0, 0.6, 0.9,  0.6, 0.9, 0.6, 0.9])
+            spiderChartView.circleCount = 11
         case 1:
             view.backgroundColor = UIColor(white: 0.1, alpha: 1.0)
             spiderChartView.color = UIColor(white: 0.75, alpha: 1.0)
