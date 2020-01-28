@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FF2718123C390CB00E0F49C /* DrawableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF2718023C390CB00E0F49C /* DrawableString.swift */; };
 		23E48A6BDD73CF1A4FC5460D365ACBEC /* DDSpiderChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4E07361EE042774B6F4D7F73172EB4 /* DDSpiderChartView.swift */; };
 		3BBB766F817A0D7DF488C65EA4174540 /* Pods-DDSpiderChart_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D2EDFF8D67014D5FF34155D9DEB17B /* Pods-DDSpiderChart_Tests-dummy.m */; };
 		453305583EF22287D49F54562F24C6F6 /* DDSpiderChart-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D3F0325842F86C2C0C828D30A2F8BF /* DDSpiderChart-dummy.m */; };
@@ -48,7 +47,6 @@
 		1728C249A6C1464EDDEA3CAB14E3DDEB /* DDSpiderChart-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDSpiderChart-umbrella.h"; sourceTree = "<group>"; };
 		1C8B4A758A12F88C65953E296EC37610 /* Pods-DDSpiderChart_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DDSpiderChart_Example-Info.plist"; sourceTree = "<group>"; };
 		1E574A97058F5EC4CE6FFC4BA979B9DA /* Pods-DDSpiderChart_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DDSpiderChart_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1FF2718023C390CB00E0F49C /* DrawableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableString.swift; sourceTree = "<group>"; };
 		2589FE642CDA3E1B8D5D6612DA8754F1 /* Pods-DDSpiderChart_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DDSpiderChart_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		2674538F9A8E5D502763444185C83673 /* DDSpiderChart.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = DDSpiderChart.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		27059BBAD9305ACFD9BD3CF9C20FA2F2 /* Pods_DDSpiderChart_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDSpiderChart_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +107,6 @@
 			children = (
 				4E8843648F825460C9936B2A961484A1 /* DDSpiderChartDataSetView.swift */,
 				5F4E07361EE042774B6F4D7F73172EB4 /* DDSpiderChartView.swift */,
-				1FF2718023C390CB00E0F49C /* DrawableString.swift */,
 				84298B5B16709651DBC2B00B7627EA78 /* Pod */,
 				3D69A11371D7590BD0EEC0D03E361558 /* Support Files */,
 			);
@@ -381,7 +378,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF2718123C390CB00E0F49C /* DrawableString.swift in Sources */,
 				453305583EF22287D49F54562F24C6F6 /* DDSpiderChart-dummy.m in Sources */,
 				A26AB83B30348F7A4D8F3CCCE4B7567D /* DDSpiderChartDataSetView.swift in Sources */,
 				23E48A6BDD73CF1A4FC5460D365ACBEC /* DDSpiderChartView.swift in Sources */,

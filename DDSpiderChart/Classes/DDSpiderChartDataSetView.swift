@@ -47,9 +47,10 @@ final class DDSpiderChartDataSetView: UIView {
             }
         }
         path.close()
-        self.color.set()
+        UIColor(red: 0.518, green: 0.827, blue: 0.753, alpha: 1).set()
+        path.lineWidth = 2
         path.stroke()
-        self.color.withAlphaComponent(0.75).setFill()
+        self.color.setFill()
         path.fill()
     }
     
