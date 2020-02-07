@@ -22,7 +22,7 @@ open class DDSpiderChartView: UIView {
             views = []
             
             // add values
-            let view = DDSpiderChartDataSetView(radius: circleRadius, values: items.map { $0.value}, color: color)
+            let view = DDSpiderChartDataSetView(radius: circleRadius, values: items.map { $0.value}, color: UIColor(red: 0.517, green: 0.827, blue: 0.752, alpha: 0.25))
             view.frame = bounds
             view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             view.backgroundColor = .clear
