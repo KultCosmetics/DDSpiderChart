@@ -33,17 +33,39 @@ class ViewController: UIViewController {
         case 0:
             view.backgroundColor = .white
             spiderChartView.color = UIColor(red: 0.914, green: 0.914, blue: 0.914, alpha: 1)
-            spiderChartView.concerns = ["PAS", "DRI", "SPD", "DEF", "PHY", "DEF"]
-            spiderChartView.addDataSet(values: [0.6, 0.8, 1.0, 0.6, 0.9,  0.6], color: UIColor(red: 0.518, green: 0.827, blue: 0.753, alpha: 0.25))
+            spiderChartView.items = [ItemView(value: 0.6, isSet: false),
+                                     ItemView(value: 0.8, isSet: true),
+                                     ItemView(value: 1.0, isSet: false),
+                                     ItemView(value: 0.6, isSet: true),
+                                     ItemView(value: 0.9, isSet: true),
+                                     ItemView(value: 0.6, isSet: false)]
+            
             spiderChartView.circleCount = 10
         default:
             view.backgroundColor = .white
             spiderChartView.color = .darkGray
-            spiderChartView.concerns = ["E-mail", "Facebook", "Twitter"]
-            spiderChartView.addDataSet(values: [0.8, 0.8, 1.0], color: UIColor(red:1.00, green:0.54, blue:0.00, alpha:1.0))
+            spiderChartView.items = [ItemView(value: 0.6, isSet: false),
+                                     ItemView(value: 0.8, isSet: true),
+                                     ItemView(value: 1.0, isSet: false)]
             return
         }
     }
 
+}
+
+class ItemView: SpiderChartItem {
+    var view: UIView
+    var value: Float
+    var isSet: Bool
+    
+    init(value: Float, isSet: Bool) {
+        self.value = value
+        self.isSet = isSet
+        view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        let label = UILabel(frame: CGRect(x: 0, y: 10, width: 80, height: 20))
+        view.addSubview(label)
+        label.text = "hello"
+    }
 }
 

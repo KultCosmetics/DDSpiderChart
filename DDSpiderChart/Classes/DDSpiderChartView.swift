@@ -8,14 +8,26 @@
 
 import UIKit
 
+public protocol SpiderChartItem {
+    var view: UIView { get }
+    var isSet: Bool { get }
+    var value: Float { get }
+}
+
 open class DDSpiderChartView: UIView {
     
-    // TODO: concerns should be an array of type representing concerns instead of String
-    public var concerns: [String] = [] {
+    public var items: [SpiderChartItem] = [] {
         didSet {
-            // When categories change, data sets should be cleaned
             views.forEach { $0.removeFromSuperview() }
             views = []
+            
+            // add values
+            let view = DDSpiderChartDataSetView(radius: circleRadius, values: items.map { $0.value}, color: color)
+            view.frame = bounds
+            view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            view.backgroundColor = .clear
+            views.append(view)
+            addSubview(view)
         }
     }
     
@@ -44,26 +56,6 @@ open class DDSpiderChartView: UIView {
             }
         }
     }
-
-    public func addDataSet(values: [Float], color: UIColor, animated: Bool = true) -> UIView? {
-        guard values.count == concerns.count else { return nil }
-        
-        let view = DDSpiderChartDataSetView(radius: circleRadius, values: values, color: color)
-        view.frame = bounds
-        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        view.backgroundColor = .clear
-        views.append(view)
-        addSubview(view)
-        if animated {
-            view.alpha = 0
-            view.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 5.0, options: [], animations: {
-                view.alpha = 1.0
-                view.transform = CGAffineTransform.identity
-            }, completion: nil)
-        }
-        return view
-    }
     
     public func removeDataSetView(_ view: UIView) {
         guard let index = views.firstIndex(where: { $0 === view }) else { return }
@@ -91,10 +83,10 @@ extension DDSpiderChartView {
         }
 
         // Draw each data set
-        for (index, concern) in concerns.enumerated() {
+        for (index, item) in items.enumerated() {
             
             // Axes
-            let angle = CGFloat(-Float.pi / 2) - CGFloat(index) * CGFloat(2 * Float.pi) / CGFloat(concerns.count)
+            let angle = CGFloat(-Float.pi / 2) - CGFloat(index) * CGFloat(2 * Float.pi) / CGFloat(items.count)
             self.color.set()
             let linePath = UIBezierPath()
             linePath.move(to: center)
@@ -109,8 +101,7 @@ extension DDSpiderChartView {
 
             circleCenter = CGPoint(x: center.x + (circleRadius + circleGap * 3/2) * cos(angle), y: center.y + (circleRadius + circleGap * 3/2) * sin(angle))
             
-            // TODO: if condition should check if concern is user concern
-            if (index % 2 == 0) {
+            if item.isSet {
                 let smallerCirclePath = UIBezierPath(arcCenter: circleCenter, radius: 3.5, startAngle: 0, endAngle: CGFloat(2 * Float.pi), clockwise: true)
                 smallerCirclePath.lineWidth = 0
                 smallerCirclePath.stroke()
@@ -162,10 +153,8 @@ extension DDSpiderChartView {
                 categoryStringOrigin = CGPoint(x: circleCenter.x, y: circleCenter.y+(isOnTop ? (-(100+categoryStringPadding)) : (categoryStringPadding)))
             }
 
-            // TODO: render a concern card instead of a red box
-            let view = UIView()
+            let view = item.view
             view.frame = .init(origin: categoryStringOrigin!, size: CGSize(width: 80, height: 100))
-            view.backgroundColor = .red
             addSubview(view)
         }
 
@@ -180,7 +169,7 @@ extension DDSpiderChartView {
     }
     
     override open var intrinsicContentSize: CGSize {
-        let len = 2 * circleRadius + 236 // +236 for concern views
+        let len = 2 * circleRadius + 236 // +236 for item views
         return .init(width: len, height: len)
     }
         
