@@ -180,7 +180,7 @@ extension DDSpiderChartView {
     }
     
     override open var intrinsicContentSize: CGSize {
-        let len = 2 * circleRadius + 100 // +100 for text
+        let len = 2 * circleRadius + 236 // +236 for concern views
         return .init(width: len, height: len)
     }
         
