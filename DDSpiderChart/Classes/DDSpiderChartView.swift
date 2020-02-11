@@ -126,7 +126,7 @@ extension DDSpiderChartView {
             let isVertical = round(abs(angle * 57.2958)).truncatingRemainder(dividingBy: 90) == 0
             let isHorizontal = round(abs(angle * 57.2958)).truncatingRemainder(dividingBy: 90) == 1
             
-            let categoryStringPadding = circleGap/2
+            let categoryStringPadding: CGFloat = 9
             
             var categoryStringOrigin: CGPoint?
 
@@ -169,7 +169,7 @@ extension DDSpiderChartView {
     }
     
     override open var intrinsicContentSize: CGSize {
-        let len = 2 * circleRadius + 236 // +236 for item views
+        let len = 2 * circleRadius + 245 // +245 for item views
         return .init(width: len, height: len)
     }
         
